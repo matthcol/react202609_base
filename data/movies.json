@@ -10,5 +10,125 @@
         "title": "Cool Runnings",
         "year": 1993,
         "duration": 98
+    },
+    {
+        "id": "1001",
+        "title": "Sunset Boulevard",
+        "year": 1950,
+        "duration": 110
+    },
+    {
+        "id": "1002",
+        "title": "Singin' in the Rain",
+        "year": 1952,
+        "duration": 103
+    },
+    {
+        "id": "1003",
+        "title": "Psycho",
+        "year": 1960,
+        "duration": 109
+    },
+    {
+        "id": "1004",
+        "title": "2001: A Space Odyssey",
+        "year": 1968,
+        "duration": 149
+    },
+    {
+        "id": "1005",
+        "title": "The Godfather",
+        "year": 1972,
+        "duration": 175
+    },
+    {
+        "id": "1006",
+        "title": "Jaws",
+        "year": 1975,
+        "duration": 124
+    },
+    {
+        "id": "1007",
+        "title": "Star Wars",
+        "year": 1977,
+        "duration": 121
+    },
+    {
+        "id": "1008",
+        "title": "Back to the Future",
+        "year": 1985,
+        "duration": 116
+    },
+    {
+        "id": "1009",
+        "title": "Die Hard",
+        "year": 1988,
+        "duration": 132
+    },
+    {
+        "id": "1010",
+        "title": "Terminator 2: Judgment Day",
+        "year": 1991,
+        "duration": 137
+    },
+    {
+        "id": "1011",
+        "title": "Pulp Fiction",
+        "year": 1994,
+        "duration": 154
+    },
+    {
+        "id": "1012",
+        "title": "Titanic",
+        "year": 1997,
+        "duration": 195
+    },
+    {
+        "id": "1013",
+        "title": "The Matrix",
+        "year": 1999,
+        "duration": 136
+    },
+    {
+        "id": "1014",
+        "title": "The Lord of the Rings: The Fellowship of the Ring",
+        "year": 2001,
+        "duration": 178
+    },
+    {
+        "id": "1015",
+        "title": "The Lord of the Rings: The Return of the King",
+        "year": 2003,
+        "duration": 201
+    },
+    {
+        "id": "1016",
+        "title": "The Dark Knight",
+        "year": 2008,
+        "duration": 152
+    },
+    {
+        "id": "1017",
+        "title": "Inception",
+        "year": 2010,
+        "duration": 148
+    },
+    {
+        "id": "1018",
+        "title": "Interstellar",
+        "year": 2014,
+        "duration": 169
+    },
+    {
+        "id": "1019",
+        "title": "Parasite",
+        "year": 2019,
+        "duration": 132
+    },
+    {
+        "id": "1020",
+        "title": "Oppenheimer",
+        "year": 2023,
+        "duration": 180
     }
 ]
