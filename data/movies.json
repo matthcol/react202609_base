@@ -1,0 +1,14 @@
+[
+    {
+        "id": "123",
+        "title": "The Hobbit: An Unexpected Journey",
+        "year": 2012,
+        "duration": 169
+    },
+    {
+        "id": "456",
+        "title": "Cool Runnings",
+        "year": 1993,
+        "duration": 98
+    }
+]

@@ -1,6 +1,7 @@
 import './App.css'   // CSS globale
 import Headers from './Headers'
 import Intro from './Intro'
+import Movies from './Movies'
 
 
 const App = () => {
@@ -8,7 +9,7 @@ const App = () => {
   return (
     <>
       <Headers />
-    
+      <Movies />
       <Intro />
     </>
   )
