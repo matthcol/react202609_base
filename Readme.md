@@ -137,3 +137,10 @@ Installation d'un projet existant:
 cd cinema
 npm install
 ```
+
+Start Project in dev mode
+```
+npm run dev
+```
+
+Extension Chrome/Firefox : React Developer Tools
