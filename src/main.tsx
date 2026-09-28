@@ -5,6 +5,9 @@ import App from './components/App'
 
 
 createRoot(document.getElementById('root')!).render(
+   // StructMode: utilisé en mode dev pour s'assurer que chaque
+   //             composant est bien une fonction pure en l'appelant deux fois
+   //             de suite au rendu
   <StrictMode>
     <App />
   </StrictMode>,
