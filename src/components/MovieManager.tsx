@@ -1,9 +1,10 @@
 
 import { useState } from 'react'
 import movies from '../../data/movies.json'
-import MovieCard from './MovieCard'
 import type { Movie } from '../types/movie'
 import styles from './MovieManager.module.css'
+import MovieCard from './MovieCard'
+import MoviePlaylist from './MoviePlaylist'
 
 const MovieManager = () => {
     const [movieSelection, setMovieSelection] = useState<Movie[]>(
@@ -14,7 +15,13 @@ const MovieManager = () => {
     const [moviePlaylist, setMoviePlaylist] = useState<Movie[]>([])
 
     const addPlaylist = (movie: Movie) => {
-        // TODO
+        console.log("add movie:", movie)
+        // moviePlaylist.push(movie) // KO : same ref => no render
+        setMoviePlaylist((prevPlayList) => 
+            (prevPlayList.indexOf(movie) == -1) 
+            ? [...prevPlayList, movie]
+            : prevPlayList
+        )
     }
 
     const handleChangeYearMin = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -30,6 +37,7 @@ const MovieManager = () => {
     return (
         <>
             <section id="movies">
+                <MoviePlaylist moviePlaylist={moviePlaylist} />
                 <h2>Movies</h2>
                 <div className={styles.filters}>
                     <label htmlFor="year-min">Année min</label>
