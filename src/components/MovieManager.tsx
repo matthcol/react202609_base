@@ -3,14 +3,19 @@ import { useState } from 'react'
 import movies from '../../data/movies.json'
 import MovieCard from './MovieCard'
 import type { Movie } from '../types/movie'
-import styles from './Movies.module.css'
+import styles from './MovieManager.module.css'
 
-const Movies = () => {
+const MovieManager = () => {
     const [movieSelection, setMovieSelection] = useState<Movie[]>(
         () => movies.slice()
     )
     const [yearMinStr, setYearMinStr] = useState("1850")
     const [yearMin, setYearMin] = useState(1850)
+    const [moviePlaylist, setMoviePlaylist] = useState<Movie[]>([])
+
+    const addPlaylist = (movie: Movie) => {
+        // TODO
+    }
 
     const handleChangeYearMin = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newValueStr: string = e.target.value
@@ -46,7 +51,14 @@ const Movies = () => {
                     // version 3 : 1 card par movie
                     movieSelection
                         .filter(movie => movie.year >= yearMin)
-                        .map((movie, index) => <MovieCard key={movie.id} index={index} movie={movie} />)
+                        .map((movie, index) => 
+                            <MovieCard 
+                                key={movie.id} 
+                                index={index} 
+                                movie={movie} 
+                                addPlaylist={addPlaylist}
+                            />
+                        )
                 }
                 </div>
             </section>
@@ -54,4 +66,4 @@ const Movies = () => {
     )
 }
 
-export default Movies
+export default MovieManager
