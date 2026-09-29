@@ -2,7 +2,8 @@
 import { useState } from 'react'
 import movies from '../../data/movies.json'
 import MovieCard from './MovieCard'
-import type { Movie } from '../types/Movie'
+import type { Movie } from '../types/movie'
+import styles from './Movies.module.css'
 
 const Movies = () => {
     const [movieSelection, setMovieSelection] = useState<Movie[]>(
@@ -25,13 +26,15 @@ const Movies = () => {
         <>
             <section id="movies">
                 <h2>Movies</h2>
-                <div>
-                    <input 
-                        type="number" 
-                        value={yearMinStr} 
+                <div className={styles.filters}>
+                    <label htmlFor="year-min">Année min</label>
+                    <input
+                        id="year-min"
+                        type="number"
+                        value={yearMinStr}
                         onChange={handleChangeYearMin} />
                 </div>
-                <div>
+                <div className={styles.grid}>
                 {   // version 1 : 1 seule card
                     /* <MovieCard index={0} movie={movieSelection[0]} /> */
                 }
@@ -43,7 +46,7 @@ const Movies = () => {
                     // version 3 : 1 card par movie
                     movieSelection
                         .filter(movie => movie.year >= yearMin)
-                        .map((movie, index) => <MovieCard index={index} movie={movie} />)
+                        .map((movie, index) => <MovieCard key={movie.id} index={index} movie={movie} />)
                 }
                 </div>
             </section>
