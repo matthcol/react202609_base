@@ -152,5 +152,12 @@
         "year": 2023,
         "duration": 180,
         "posterUrl": "https://upload.wikimedia.org/wikipedia/en/4/4a/Oppenheimer_%28film%29.jpg"
+    },
+    {
+        "id": "1021",
+        "title": "The Odyssey",
+        "year": 2026,
+        "duration": 173,
+        "posterUrl": "https://upload.wikimedia.org/wikipedia/en/9/90/The_Odyssey_%282026_film%29_poster.jpg"
     }
 ]
