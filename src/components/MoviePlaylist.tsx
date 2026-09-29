@@ -28,17 +28,23 @@ const MoviePlaylist = ({moviePlaylist}: MoviePlaylistProps) => {
         <>
             <div className="playlist">
                 <h2>Playlist</h2>
-                <input 
-                    type="checkbox" 
-                    onChange={() => setDisplayCard(!displayCard)}
-                    checked={displayCard}
-                ></input>
+                <label className={styles.detailEnable}>
+                    Detail
+                    <span className={styles.switch}>
+                        <input
+                            type="checkbox"
+                            onChange={() => setDisplayCard(!displayCard)}
+                            checked={displayCard}
+                        />
+                        <span className={styles.slider}></span>
+                    </span>
+                </label>
                 <div className={styles.grid}>
                     {
                         moviePlaylist.map((movie, index) => 
                             displayCard 
                             ? <MovieCard  key={movie.id} index={index} movie={movie} />
-                            : <p>{movie.title} ({movie.year})</p>
+                            : <p key={movie.id} className={styles.simpleItem}>{movie.title} ({movie.year})</p>
                         )
                     }
                 </div>
