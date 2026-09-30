@@ -20,7 +20,7 @@ createRoot(document.getElementById('root')!).render(
    //             de suite au rendu
   <StrictMode>
     <ContextCounter.Provider value={1}>
-      <MoviePlaylistContextProvider>
+      <MoviePlaylistContextProvider>  { /* initialize reducer */ }
           <App />
       </MoviePlaylistContextProvider>
     </ContextCounter.Provider>
