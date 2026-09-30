@@ -1,6 +1,5 @@
 import { useContext, useReducer } from "react"
-import { moviePlayListReducer, type ActionMoviePlaylist } from "../reducers/moviePlaylistReducer"
-import type { Movie } from "../types/movie"
+import { moviePlayListReducer } from "../reducers/moviePlaylistReducer"
 import { ContextCounter } from "../main"
 
 const MovieManagerReducer = () => {
