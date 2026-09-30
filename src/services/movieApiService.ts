@@ -1,4 +1,4 @@
-import {catchError, from, of, switchMap} from 'rxjs'
+import {catchError, from, map, of, switchMap} from 'rxjs'
 import type { Movie } from '../types/movie'
 
 const BASE_URL = 'http://localhost:3000/movies'
@@ -37,6 +37,7 @@ const getMoviePage = (numPage: number, pageSize: number) => {
                 return from<Promise<PageMovieResponse>>(jsonResponse)
             }
         ),
+        // map(...), // adapter la reponse
         catchError(
             (error) => {
                 console.log('[Error] call api: ', error)

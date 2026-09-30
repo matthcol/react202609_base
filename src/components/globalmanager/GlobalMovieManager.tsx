@@ -2,13 +2,12 @@ import movies from '../../../data/movies.json'
 import type { Movie } from '../../types/movie'
 import styles from './GlobalMovieManager.module.css'
 import GlobalMovieCard from './GlobalMovieCard'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import GlobalMoviePlaylist from './GlobalMoviePlaylist'
+import { getMoviePage } from '../../services/movieApiService'
 
 const GlobalMovieManager = () => {
-    const [movieSelection, setMovieSelection] = useState<Movie[]>(
-        () => movies.slice()
-    )
+    const [movieSelection, setMovieSelection] = useState<Movie[]>([])
     const [yearMinStr, setYearMinStr] = useState("1850")
     const [yearMin, setYearMin] = useState(1850)
 
@@ -21,7 +20,17 @@ const GlobalMovieManager = () => {
         }
     }
 
-    
+    // useEffect est fait à la fin:
+    // - 1er rendu
+    // - à chaque changement de dépendance
+    useEffect(
+        () => {
+            getMoviePage(1, 20).subscribe(
+                moviePageResponse => setMovieSelection(moviePageResponse.data)
+            )
+            //, [numPage, pageSize]
+        }
+    )
     return (
         <>
             <section id="movies">
