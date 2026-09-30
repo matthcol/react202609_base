@@ -144,3 +144,28 @@ npm run dev
 ```
 
 Extension Chrome/Firefox : React Developer Tools
+
+## Dépendances supplémentaires
+```shell
+npm install --save-dev json-server                                                                      
+```
+
+Ajouter le script `api` dans `package.json`
+```
+"scripts": {
+    "api": "json-server --watch data/cinemadb.json --port 3000"
+    ...
+}
+```
+
+Lancer l'api
+```shell
+npm run api
+```
+
+Quelques routes:
+```
+http://localhost:3000/movies
+http://localhost:3000/movies/
+http://localhost:3000/movies?_page=1&_per_page=10
+```
