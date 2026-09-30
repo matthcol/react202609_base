@@ -159,5 +159,10 @@
         "year": 2026,
         "duration": 173,
         "posterUrl": "https://upload.wikimedia.org/wikipedia/en/9/90/The_Odyssey_%282026_film%29_poster.jpg"
+    },
+    {
+        "id": "1022",
+        "title": "Spiderman Brand New Day",
+        "year": 2026
     }
 ]

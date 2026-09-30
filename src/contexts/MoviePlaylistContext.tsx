@@ -1,6 +1,6 @@
 import { createContext, useReducer, type ActionDispatch, type ReactNode } from "react";
 import type { Movie } from "../types/movie";
-import { moviePlayListReducer, type ActionMoviePlaylist } from "../reducers/moviePlaylistReducer";
+import { moviePlaylistReducer, type ActionMoviePlaylist } from "../reducers/moviePlaylistReducer";
 
 type MoviePlaylistValue = {
     moviePlaylist: Movie[]
@@ -16,7 +16,7 @@ const MoviePlaylistContext = createContext<MoviePlaylistValue|null>(null)
 
 // mise en place de la valeur du contexte dans l'arborescence des composants
 const MoviePlaylistContextProvider = ({children}: MoviePlaylistContextProviderProps) => {
-    const [moviePlaylist, dispatch] = useReducer(moviePlayListReducer, [])
+    const [moviePlaylist, dispatch] = useReducer(moviePlaylistReducer, [])
 
     // Note: {moviePlaylist, dispatch} i.e {moviePlaylist: moviePlaylist, dispatch: dispatch}
     return (

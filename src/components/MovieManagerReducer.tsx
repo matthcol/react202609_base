@@ -1,10 +1,10 @@
 import { useContext, useReducer } from "react"
-import { moviePlayListReducer } from "../reducers/moviePlaylistReducer"
+import { moviePlaylistReducer } from "../reducers/moviePlaylistReducer"
 import { ContextCounter } from "../main"
 
 const MovieManagerReducer = () => {
     // const [moviePlaylist, dispatch] = useReducer<Movie[], [action: ActionMoviePlaylist]>(moviePlayListReducer, [])
-    const [moviePlaylist, dispatch] = useReducer(moviePlayListReducer, [])
+    const [moviePlaylist, dispatch] = useReducer(moviePlaylistReducer, [])
     const counter = useContext(ContextCounter)
     return (
         <>

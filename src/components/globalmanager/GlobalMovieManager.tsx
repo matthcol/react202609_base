@@ -3,6 +3,7 @@ import type { Movie } from '../../types/movie'
 import styles from './GlobalMovieManager.module.css'
 import GlobalMovieCard from './GlobalMovieCard'
 import { useState } from 'react'
+import GlobalMoviePlaylist from './GlobalMoviePlaylist'
 
 const GlobalMovieManager = () => {
     const [movieSelection, setMovieSelection] = useState<Movie[]>(
@@ -24,7 +25,7 @@ const GlobalMovieManager = () => {
     return (
         <>
             <section id="movies">
-                {/* <MoviePlaylist moviePlaylist={moviePlaylist} /> */}
+                <GlobalMoviePlaylist />
                 <h2>Movies</h2>
                 <div className={styles.filters}>
                     <label htmlFor="year-min">Année min</label>

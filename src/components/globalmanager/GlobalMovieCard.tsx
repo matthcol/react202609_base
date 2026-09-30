@@ -1,7 +1,7 @@
-import { useContext } from "react"
 import type { Movie } from "../../types/movie"
 import styles from "./GlobalMovieCard.module.css"
-import { MoviePlaylistContext } from "../../contexts/MoviePlaylistContext"
+import GlobalMovieControls from "./GlobalMovieControls"
+import posterDefaultUrl from "../../assets/poster-default.svg"
 
 type GlobalMovieCardProps = {
     index: number
@@ -9,13 +9,14 @@ type GlobalMovieCardProps = {
     controlsEnable: [boolean, boolean]
 }
 
-// composant MovieCard reçoit un movie dans ses props
 const GlobalMovieCard = ({index, movie, controlsEnable}: GlobalMovieCardProps) => {
-    const {dispatch} = useContext(MoviePlaylistContext)!  // note: faire un custom hook
-    const [enableAdd, enableRemove] = controlsEnable
     return (
         <div className={styles.card}>
-            <img className={styles.poster} src={movie.posterUrl} alt={movie.title} />
+            <img 
+                className={styles.poster} 
+                src={movie.posterUrl ? movie.posterUrl : posterDefaultUrl} 
+                alt={movie.title} 
+            />
             <div className={styles.info}>
                 <p className={styles.title}>{index + 1} - {movie.title}</p>
                 <div className={styles.meta}>
@@ -23,11 +24,7 @@ const GlobalMovieCard = ({index, movie, controlsEnable}: GlobalMovieCardProps) =
                     <span>{movie.duration ?? 'NA'} mn</span>
                 </div>
             </div>
-            {
-                enableAdd 
-                && <button onClick={
-                        () => dispatch({type: "addToPlaylist", movie: movie})
-                    }>+</button>}
+            <GlobalMovieControls movie={movie} controlsEnable={controlsEnable} />
         </div>
     )
 }
