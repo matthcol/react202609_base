@@ -11,7 +11,7 @@ type GlobalMovieCardProps = {
 
 // composant MovieCard reçoit un movie dans ses props
 const GlobalMovieCard = ({index, movie, controlsEnable}: GlobalMovieCardProps) => {
-    const {dispatch} = useContext(MoviePlaylistContext)!
+    const {dispatch} = useContext(MoviePlaylistContext)!  // note: faire un custom hook
     const [enableAdd, enableRemove] = controlsEnable
     return (
         <div className={styles.card}>

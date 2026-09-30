@@ -4,6 +4,7 @@ import Intro from './Intro'
 import MovieManager from './MovieManager'
 import Collapsible from './Collapsible'
 import MovieManagerReducer from './MovieManagerReducer'
+import GlobalMovieManager from './globalmanager/GlobalMovieManager'
 
 
 
@@ -12,6 +13,9 @@ const App = () => {
   return (
     <>
       <Headers />
+      <Collapsible title="Movie Manager with context + reducer">
+        <GlobalMovieManager />
+      </Collapsible>
       <Collapsible title="Movie Manager with Reducer only">
         <MovieManagerReducer />
       </Collapsible>
