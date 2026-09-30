@@ -5,11 +5,15 @@ import GlobalMovieCard from './GlobalMovieCard'
 import { useEffect, useState } from 'react'
 import GlobalMoviePlaylist from './GlobalMoviePlaylist'
 import { getMoviePage } from '../../services/movieApiService'
+import Pagination from './Pagination'
 
 const GlobalMovieManager = () => {
     const [movieSelection, setMovieSelection] = useState<Movie[]>([])
     const [yearMinStr, setYearMinStr] = useState("1850")
     const [yearMin, setYearMin] = useState(1850)
+    const [numPage, setNumPage] = useState(1)
+    const [pageSize, setPageSize] = useState(50)
+    const [pageCount, setPageCount] = useState(1)
 
     const handleChangeYearMin = (e: React.ChangeEvent<HTMLInputElement>) => {
         const newValueStr: string = e.target.value
@@ -25,25 +29,48 @@ const GlobalMovieManager = () => {
     // - à chaque changement de dépendance
     useEffect(
         () => {
-            getMoviePage(1, 20).subscribe(
-                moviePageResponse => setMovieSelection(moviePageResponse.data)
+            console.log("effect: call API")
+            getMoviePage(numPage, pageSize).subscribe(
+                moviePageResponse => {
+                    console.log(`effect: page received (num page=${
+                            numPage
+                        }, page count=${
+                            moviePageResponse.pages
+                        }, movie count=${
+                            moviePageResponse.data.length
+                        })`
+                    )
+                    setMovieSelection(moviePageResponse.data)
+                    setPageCount(moviePageResponse.pages)
+                }
             )
-            //, [numPage, pageSize]
-        }
+        },
+        // []  // si aucune liste => useEffect appelé à chaque rendu
+        [numPage, pageSize]
     )
     return (
         <>
             <section id="movies">
                 <GlobalMoviePlaylist />
                 <h2>Movies</h2>
-                <div className={styles.filters}>
+                <div>
+                    <Pagination 
+                        numPage={numPage} 
+                        setNumPage={setNumPage}
+                        pageSize={pageSize} 
+                        setPageSize={setPageSize} 
+                        pageCount={pageCount} 
+                    />
+                    <div className={styles.filters}>
                     <label htmlFor="year-min">Année min</label>
                     <input
                         id="year-min"
                         type="number"
                         value={yearMinStr}
                         onChange={handleChangeYearMin} />
+                    </div>
                 </div>
+                
                 <div className={styles.grid}>
                 {
                     movieSelection

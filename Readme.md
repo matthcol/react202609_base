@@ -145,7 +145,7 @@ npm run dev
 
 Extension Chrome/Firefox : React Developer Tools
 
-## Dépendances supplémentaires
+## Mock API
 ```shell
 npm install --save-dev json-server                                                                      
 ```
@@ -168,4 +168,12 @@ Quelques routes:
 http://localhost:3000/movies
 http://localhost:3000/movies/
 http://localhost:3000/movies?_page=1&_per_page=10
+```
+
+
+## Call API
+Utilisation de fetch + rxjs
+
+```shell
+npm install rxjs
 ```

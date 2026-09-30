@@ -1,11 +1,11 @@
-import { useContext, useMemo, useState } from "react"
-import { MoviePlaylistContext } from "../../contexts/MoviePlaylistContext"
 import styles from './GlobalMoviePlaylist.module.css'
 import GlobalMovieCard from "./GlobalMovieCard"
+import useMoviePlaylist from "../../hooks/useMoviePlaylist"
+import { useMemo, useState } from 'react'
 
 const GlobalMoviePlaylist = () => {
     const [displayCard, setDisplayCard] = useState(true)
-    const {moviePlaylist, dispatch} = useContext(MoviePlaylistContext)!
+    const {moviePlaylist, dispatch} = useMoviePlaylist()  // TODO: utiliser le custom hook dans les autres composants
     
     const [totalHours, totalMinutes] = useMemo(
         () => {
